@@ -13,4 +13,5 @@
   * [Pod的配置管理](kuberneteszhi-shen-ru-le-jie-pod/podde-pei-zhi-guan-li.md)
   * [Pod生命周期和重启策略](kuberneteszhi-shen-ru-le-jie-pod/podsheng-ming-zhou-qi-he-zhong-qi-ce-lve.md)
   * [Pod调度](kuberneteszhi-shen-ru-le-jie-pod/poddiao-du.md)
+* [Kubernetes 具有如下特点](kubernetes-ju-you-ru-xia-te-dian.md)
 
