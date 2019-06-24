@@ -18,4 +18,5 @@
 * [为什么 Kubernetes 是一个平台](wei-shi-yao-kubernetes-shi-yi-ge-ping-tai.md)
 * [k8s的架构图和各个组件](k8sde-jia-gou-tu-he-ge-ge-zu-jian.md)
 * [50+ 顶级开源 Kubernetes 工具列表](50+-ding-ji-kai-yuan-kubernetes-gong-ju-lie-biao.md)
+* [K8S 落地](k8s-luo-di.md)
 
