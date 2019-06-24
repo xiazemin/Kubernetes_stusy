@@ -9,4 +9,5 @@
   * yaml格式的Pod配置文件内容及注解
   * [Pod基本用法](kuberneteszhi-shen-ru-le-jie-pod/podji-ben-yong-fa.md)
   * [静态Pod](kuberneteszhi-shen-ru-le-jie-pod/jing-tai-pod.md)
+  * [Pod容器共享Volume](kuberneteszhi-shen-ru-le-jie-pod/podrong-qi-gong-xiang-volume.md)
 

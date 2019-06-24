@@ -18,7 +18,6 @@ static-web-node1 0/1Pending 0 1s
 2
 #rm -f /etc/kubelet.d/static-web.yaml
 #docker ps
-　　
 ```
 
 
