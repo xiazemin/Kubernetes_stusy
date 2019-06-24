@@ -16,4 +16,5 @@
 * [Kubernetes 具有如下特点](kubernetes-ju-you-ru-xia-te-dian.md)
 * [为什么是容器](wei-shi-yao-shi-rong-qi.md)
 * [为什么 Kubernetes 是一个平台](wei-shi-yao-kubernetes-shi-yi-ge-ping-tai.md)
+* [k8s的架构图和各个组件](k8sde-jia-gou-tu-he-ge-ge-zu-jian.md)
 
