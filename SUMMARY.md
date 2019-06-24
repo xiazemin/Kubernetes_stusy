@@ -15,4 +15,5 @@
   * [Pod调度](kuberneteszhi-shen-ru-le-jie-pod/poddiao-du.md)
 * [Kubernetes 具有如下特点](kubernetes-ju-you-ru-xia-te-dian.md)
 * [为什么是容器](wei-shi-yao-shi-rong-qi.md)
+* [为什么 Kubernetes 是一个平台](wei-shi-yao-kubernetes-shi-yi-ge-ping-tai.md)
 
