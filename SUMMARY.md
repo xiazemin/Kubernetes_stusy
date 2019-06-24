@@ -8,4 +8,5 @@
 * [Kubernetes之深入了解Pod](kuberneteszhi-shen-ru-le-jie-pod.md)
   * yaml格式的Pod配置文件内容及注解
   * [Pod基本用法](kuberneteszhi-shen-ru-le-jie-pod/podji-ben-yong-fa.md)
+  * [静态Pod](kuberneteszhi-shen-ru-le-jie-pod/jing-tai-pod.md)
 
