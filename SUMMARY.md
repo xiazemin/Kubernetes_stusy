@@ -10,4 +10,5 @@
   * [Pod基本用法](kuberneteszhi-shen-ru-le-jie-pod/podji-ben-yong-fa.md)
   * [静态Pod](kuberneteszhi-shen-ru-le-jie-pod/jing-tai-pod.md)
   * [Pod容器共享Volume](kuberneteszhi-shen-ru-le-jie-pod/podrong-qi-gong-xiang-volume.md)
+  * [Pod的配置管理](kuberneteszhi-shen-ru-le-jie-pod/podde-pei-zhi-guan-li.md)
 
