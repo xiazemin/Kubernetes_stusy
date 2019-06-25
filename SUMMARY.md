@@ -41,4 +41,5 @@
 * [Pods](pods.md)
 * [Labels](labels.md)
 * [Namespace](namespace.md)
+* [Replication Controller](replication-controller.md)
 
