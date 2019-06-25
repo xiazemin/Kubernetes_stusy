@@ -34,4 +34,5 @@
   * [Docker for Mac](ji-yu-docker-ben-di-yun-xing-kubernetes/docker-for-mac.md)
   * [docker for mac k8s](ji-yu-docker-ben-di-yun-xing-kubernetes/docker-for-mac-k8s.md)
 * [VirtualBox](virtualbox.md)
+* [使用Vagrant](shi-yong-vagrant.md)
 
