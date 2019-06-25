@@ -26,5 +26,6 @@
 * [基于Docker本地运行Kubernetes](ji-yu-docker-ben-di-yun-xing-kubernetes.md)
   * [启用etcd](ji-yu-docker-ben-di-yun-xing-kubernetes/qi-yong-etcd.md)
   * [启动master](ji-yu-docker-ben-di-yun-xing-kubernetes/qi-dong-master.md)
+    * [更改路径重新启动](ji-yu-docker-ben-di-yun-xing-kubernetes/qi-dong-master/geng-gai-lu-jing-zhong-xin-qi-dong.md)
   * [运行service proxy](ji-yu-docker-ben-di-yun-xing-kubernetes/yun-xing-service-proxy.md)
 
