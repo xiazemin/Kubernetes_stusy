@@ -37,4 +37,5 @@
 * [使用Vagrant](shi-yong-vagrant.md)
 * [本地运行Kubrenetes v1.0](ben-di-yunxing-kubrenetes-v1-0.md)
 * [从零开始k8s](cong-ling-kai-shi-k8s.md)
+* [应用程序管理](ying-yong-cheng-xu-guan-li.md)
 
