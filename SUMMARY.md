@@ -32,5 +32,6 @@
   * [boot2docker](ji-yu-docker-ben-di-yun-xing-kubernetes/boot2docker.md)
   * [端口映射](ji-yu-docker-ben-di-yun-xing-kubernetes/duan-kou-ying-she.md)
   * [Docker for Mac](ji-yu-docker-ben-di-yun-xing-kubernetes/docker-for-mac.md)
+  * [docker for mac k8s](ji-yu-docker-ben-di-yun-xing-kubernetes/docker-for-mac-k8s.md)
 * [VirtualBox](virtualbox.md)
 
