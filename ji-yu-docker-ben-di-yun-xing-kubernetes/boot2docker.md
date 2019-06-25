@@ -36,5 +36,19 @@ error in run: Failed to get machine "boot2docker-vm": exec: "VBoxManage": execut
     Initialization of virtual machine "boot2docker-vm" complete.
     Use `boot2docker up` to start it.
 
+```
+$boot2docker up
+
+  WARNING: The 'boot2docker' command line interface (not to be confused with
+  'boot2docker' the operating system) is officially deprecated.
+
+  Please switch to Docker Machine (https://docs.docker.com/machine/) ASAP.
+
+  Docker Toolbox (https://docker.com/toolbox) is the recommended install method.
+
+Waiting for VM and Docker daemon to start...
+................................................................... .......o o o o
+```
+
 
 
