@@ -10,12 +10,6 @@ Docker for Mac 也是在本地跑了一个虚拟机来运行 Docker，不过 Hyp
 
 可以打开虚拟机的 tty 看看：
 
-1
-
-2
-
-3
-
 $ screen ~/Library/Containers/com.docker.docker/Data/com.docker.driver.amd64-linux/tty
 
 Linux linuxkit-025000000001 4.9.87-linuxkit-aufs \#1 SMP Fri Mar 16 18:16:33 UTC 2018 x86\_64 Linux
@@ -27,8 +21,6 @@ linuxkit-025000000001:~\#
 很简单，在 Docker for Mac 的虚拟机里跑一个 OpenVPN Server，然后从本地连过去。鉴于 Docker for Mac 在重启的时候不会保留虚拟机里的改动，所以这个 OpenVPN Server 必须要跑在容器里，并且网络模式需要设置为 host，这样才可以访问到所有的 Docker 网络。
 
 流程如下：
-
-1
 
 Mac &lt;-&gt; Tunnelblick &lt;-&gt; socat/service &lt;-&gt; OpenVPN Server &lt;-&gt; Containers
 
@@ -51,10 +43,6 @@ GitHub 链接 docker-for-mac-kubernetes-devkit，使用方法在 README.md 里�
 首先安装 Mac 的 OpenVPN 的客户端 Tunnelblick。
 
 然后将代码 clone 下来，并进入 docker-for-mac-openvpn 目录。
-
-1
-
-2
 
 $ git clone git@github.com:pengsrc/docker-for-mac-kubernetes-devkit.git
 
