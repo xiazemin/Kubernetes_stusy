@@ -14,5 +14,17 @@ docker run \
     /hyperkube kubelet --containerized --hostname-override="127.0.0.1" --address="0.0.0.0" --api-servers=http://localhost:8080 --config=/etc/kubernetes/manifests
 ```
 
+问题
+
+```
+c643c3c43a2d2567035acdd48fe84c1516ab3800c41eaf28e837b0e7e730642e
+docker: Error response from daemon: Mounts denied:
+The path /var/lib/kubelet/
+is not shared from OS X and is not known to Docker.
+You can configure shared paths from Docker -> Preferences... -> File Sharing.
+See https://docs.docker.com/docker-for-mac/osxfs/#namespaces for more info.
+..
+```
+
 
 
