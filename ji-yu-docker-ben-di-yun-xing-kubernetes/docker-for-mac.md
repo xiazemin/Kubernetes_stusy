@@ -66,20 +66,6 @@ $ cd docker-for-mac-kubernetes-devkit/docker-for-mac-openvpn
 
 在 local/values.yaml 创建一个配置文件，用于指定一些本地目录。Docker for Mac 的 File Sharing 配置里必须包含这些目录，否则 OpenVPN 是无法启动的。
 
-1
-
-2
-
-3
-
-4
-
-5
-
-6
-
-7
-
 dirPaths:
 
 \# 项目目录
@@ -95,8 +81,6 @@ local: /tmp/docker-for-mac-kubernetes-devkit/docker-for-mac-openvpn/local
 configs: /tmp/docker-for-mac-kubernetes-devkit/docker-for-mac-openvpn/local/configs
 
 运行 OpenVPN Server。注：-n 参数用于指定要安装到的 namespace。
-
-1
 
 $ helm install -n docker-for-mac -f local/values.yaml .
 
