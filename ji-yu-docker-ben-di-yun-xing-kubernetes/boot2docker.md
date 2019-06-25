@@ -12,5 +12,12 @@ Description:
    Arguments are [machine-name] [command]
 ```
 
+```
+~$              boot2docker ssh -L8080:localhost:8080
+error in run: Failed to get machine "boot2docker-vm": exec: "VBoxManage": executable file not found in $PATH
+```
 
+下载
+
+[https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
 
