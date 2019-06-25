@@ -6,3 +6,5 @@ $docker-machine status
 
 Error: No machine name\(s\) specified and no "default" machine exists
 
+
+
