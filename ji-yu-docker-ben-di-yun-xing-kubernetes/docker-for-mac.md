@@ -104,14 +104,6 @@ $ helm install -n docker-for-mac -f local/values.yaml .
 
 用 docker-compose 起服务更简单些。
 
-1
-
-2
-
-3
-
-4
-
 $ \# 启动
 
 $ docker-compose up -d
