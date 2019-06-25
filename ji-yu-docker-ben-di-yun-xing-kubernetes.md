@@ -50,6 +50,38 @@ docker run --net=host -d gcr.io/google\_containers/etcd:2.0.12 /usr/local/bin/et
 
 第二步：启动master
 
+
+```
+docker run \
+
+    --volume=/:/rootfs:ro \
+
+    --volume=/sys:/sys:ro \
+
+    --volume=/dev:/dev \
+
+    --volume=/var/lib/docker/:/var/lib/docker:ro \
+
+    --volume=/var/lib/kubelet/:/var/lib/kubelet:rw \
+
+    --volume=/var/run:/var/run:rw \
+
+    --net=host \
+
+    --pid=host \
+
+    --privileged=true \
+
+    -d \
+
+    gcr.io/google\_containers/hyperkube:v1.0.1 \
+
+    /hyperkube kubelet --containerized --hostname-override=&quot;127.0.0.1&quot; --address=&quot;0.0.0.0&quot; --api-servers=http://localhost:8080 --config=/etc/kubernetes/manifests
+
+
+```
+
+
 这一步实际上运行的是 kubelet ，并启动了一个包含其他master组件的\[pod\]\(../userguide/pods.md）。
 
 
