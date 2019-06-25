@@ -19,11 +19,22 @@ error in run: Failed to get machine "boot2docker-vm": exec: "VBoxManage": execut
 
 下载
 
-[https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)  
-
+[https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
 
      boot2docker ssh -L8080:localhost:8080
     error in run: Failed to get machine "boot2docker-vm": machine does not exist (Did you run `boot2docker init`?)
+
+    $boot2docker init
+
+      WARNING: The 'boot2docker' command line interface (not to be confused with
+      'boot2docker' the operating system) is officially deprecated.
+
+      Please switch to Docker Machine (https://docs.docker.com/machine/) ASAP.
+
+      Docker Toolbox (https://docker.com/toolbox) is the recommended install method.
+
+    Initialization of virtual machine "boot2docker-vm" complete.
+    Use `boot2docker up` to start it.
 
 
 
