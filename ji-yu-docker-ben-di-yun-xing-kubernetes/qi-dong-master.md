@@ -11,7 +11,7 @@ docker run \
     --privileged=true \
     -d \
     gcr.io/google_containers/hyperkube:v1.0.1 \
-    /hyperkube kubelet --containerized --hostname-override=&quot;127.0.0.1&quot; --address=&quot;0.0.0.0&quot; --api-servers=http://localhost:8080 --config=/etc/kubernetes/manifests
+    /hyperkube kubelet --containerized --hostname-override="127.0.0.1" --address="0.0.0.0" --api-servers=http://localhost:8080 --config=/etc/kubernetes/manifests
 ```
 
 
