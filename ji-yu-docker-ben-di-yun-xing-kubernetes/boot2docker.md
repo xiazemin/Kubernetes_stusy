@@ -56,5 +56,11 @@ export DOCKER_CERT_PATH=/Users/andi/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
 ```
 
+```
+$ boot2docker delete
+$ boot2docker init
+$ boot2docker up
+```
+
 
 
