@@ -35,4 +35,5 @@
   * [docker for mac k8s](ji-yu-docker-ben-di-yun-xing-kubernetes/docker-for-mac-k8s.md)
 * [VirtualBox](virtualbox.md)
 * [使用Vagrant](shi-yong-vagrant.md)
+* [本地运行Kubrenetes v1.0](ben-di-yunxing-kubrenetes-v1-0.md)
 
