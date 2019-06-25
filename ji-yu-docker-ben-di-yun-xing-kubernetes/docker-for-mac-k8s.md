@@ -20,7 +20,7 @@
 
 设置镜像加速地址
 
-image-20180506035306657
+![](/assets/import5.png)
 
 检查docker环境
 
@@ -58,7 +58,7 @@ $ docker rm webserver
 
 点击设置菜单
 
-image-20180506035102081
+![](/assets/import6.png)
 
 点击启动k8s的checkbox，这里会拉取比较多的镜像，可能要等好一会儿。
 
