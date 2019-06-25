@@ -25,4 +25,5 @@
 * [创建Kubernetes集群](chuang-jian-kubernetes-ji-qun.md)
 * [基于Docker本地运行Kubernetes](ji-yu-docker-ben-di-yun-xing-kubernetes.md)
   * [启用etcd](ji-yu-docker-ben-di-yun-xing-kubernetes/qi-yong-etcd.md)
+  * [启动master](ji-yu-docker-ben-di-yun-xing-kubernetes/qi-dong-master.md)
 
