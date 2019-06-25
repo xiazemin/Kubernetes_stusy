@@ -20,4 +20,5 @@
 * [50+ 顶级开源 Kubernetes 工具列表](50+-ding-ji-kai-yuan-kubernetes-gong-ju-lie-biao.md)
 * [K8S 落地](k8s-luo-di.md)
 * [k8s 学习资料地址](k8s-xue-xi-zi-liao-di-zhi.md)
+* [Kubernetes设计架构](kubernetesshe-ji-jia-gou.md)
 
