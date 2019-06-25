@@ -150,7 +150,13 @@ kubectl get svc nginx
 
 
 
+
+
+```
 kubectl get svc nginx --template={{.spec.clusterIP}}
+```
+
+
 
 通过第一个IP（CLUSTER\_IP）访问服务：
 
