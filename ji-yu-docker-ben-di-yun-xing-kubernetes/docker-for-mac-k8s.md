@@ -62,7 +62,7 @@ $ docker rm webserver
 
 点击启动k8s的checkbox，这里会拉取比较多的镜像，可能要等好一会儿。
 
-image-20180506035603276
+![](/assets/import7.png)
 
 检查k8s环境
 
