@@ -19,5 +19,11 @@ error in run: Failed to get machine "boot2docker-vm": exec: "VBoxManage": execut
 
 下载
 
-[https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)
+[https://www.virtualbox.org/wiki/Downloads](https://www.virtualbox.org/wiki/Downloads)  
+
+
+     boot2docker ssh -L8080:localhost:8080
+    error in run: Failed to get machine "boot2docker-vm": machine does not exist (Did you run `boot2docker init`?)
+
+
 
