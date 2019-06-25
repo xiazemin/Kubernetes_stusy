@@ -43,4 +43,5 @@
 * [Namespace](namespace.md)
 * [Replication Controller](replication-controller.md)
 * [Node](node.md)
+* [ReplicaSets](replicasets.md)
 
