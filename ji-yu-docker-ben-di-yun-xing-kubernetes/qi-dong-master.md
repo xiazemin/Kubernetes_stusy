@@ -62,7 +62,28 @@ Deleted: sha256:170b376f64fb30995c140276be3d71dfb256b308d86183ca3b22aa93a79ad548
 清理干净后重新安装
 
 ```
-
+$docker run --volume=/:/rootfs:ro --volume=/sys:/sys:ro --volume=/dev:/dev --volume=/var/lib/docker/:/var/lib/docker:ro --volume=/var/lib/kubelet/:/var/lib/kubelet:rw --volume=/var/run:/var/run:rw --net=host --pid=host --privileged=true -d gcr.io/google_containers/hyperkube:v1.0.1 /hyperkube kubelet --containerized --hostname-override="127.0.0.1" --address="0.0.0.0" --api-servers=http://localhost:8080 --config=/etc/kubernetes/manifests
+Unable to find image 'gcr.io/google_containers/hyperkube:v1.0.1' locally
+v1.0.1: Pulling from google_containers/hyperkube
+a3ed95caeb02: Pull complete
+61fd804e98e8: Pull complete
+2bc893e99020: Pull complete
+46a59a8a1391: Pull complete
+0486fed8f5d6: Pull complete
+cea78b32b2cf: Pull complete
+931bce33ede9: Pull complete
+9c5f8530a0ae: Pull complete
+1ec1dabc814a: Pull complete
+863323cc2193: Pull complete
+Digest: sha256:555762fdbe88eb6d731aaed02d53123d7761585d8241b15fe63b5ebfa4c0c5dd
+Status: Downloaded newer image for gcr.io/google_containers/hyperkube:v1.0.1
+f2c732f5dead4834d1d21ef6fec93c10a18b8656ddd32f20b5e58d1edd0d3715
+docker: Error response from daemon: Mounts denied:
+The path /var/lib/kubelet/
+is not shared from OS X and is not known to Docker.
+You can configure shared paths from Docker -> Preferences... -> File Sharing.
+See https://docs.docker.com/docker-for-mac/osxfs/#namespaces for more info.
+..
 ```
 
 
