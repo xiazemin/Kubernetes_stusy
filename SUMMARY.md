@@ -30,5 +30,6 @@
   * [运行service proxy](ji-yu-docker-ben-di-yun-xing-kubernetes/yun-xing-service-proxy.md)
   * [测试](ji-yu-docker-ben-di-yun-xing-kubernetes/ce-shi.md)
   * [boot2docker](ji-yu-docker-ben-di-yun-xing-kubernetes/boot2docker.md)
+  * [端口映射](ji-yu-docker-ben-di-yun-xing-kubernetes/duan-kou-ying-she.md)
 * [VirtualBox](virtualbox.md)
 
