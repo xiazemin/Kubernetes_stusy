@@ -40,4 +40,5 @@
 * [应用程序管理](ying-yong-cheng-xu-guan-li.md)
 * [Pods](pods.md)
 * [Labels](labels.md)
+* [Namespace](namespace.md)
 
