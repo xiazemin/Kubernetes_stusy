@@ -52,6 +52,8 @@ Waiting for VM and Docker daemon to start...
 
 ```
 export DOCKER_HOST=tcp://127.0.0.1:4243
+export DOCKER_CERT_PATH=/Users/andi/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
 ```
 
 
