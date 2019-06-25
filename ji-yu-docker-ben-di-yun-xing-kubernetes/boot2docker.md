@@ -59,9 +59,21 @@ export DOCKER_TLS_VERIFY=1
 ```
 
 ```
+$boot2docker down
 $ boot2docker delete
 $ boot2docker init
 $ boot2docker up
+```
+
+```
+Waiting for VM and Docker daemon to start...
+.Connecting to tcp://localhost:2022 (attempt #0)
+.Connecting to tcp://localhost:2022 (attempt #0)
+.Connecting to tcp://localhost:2022 (attempt #0)
+```
+
+```
+
 ```
 
 
