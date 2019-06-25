@@ -156,7 +156,12 @@ kubectl get svc nginx --template={{.spec.clusterIP}}
 
 
 
-curl &lt;insert-cluster-ip-here&gt;
+
+```
+curl <insert-cluster-ip-here>
+```
+
+
 
 注意如果再OSX上需要再boot2docker虚拟机上运行curl。
 
