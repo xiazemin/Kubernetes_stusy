@@ -59,5 +59,11 @@ Deleted: sha256:0dfae534a4825d9cd5c9ce8d4177d58d39226c6805a4f7e476ab231a3259b088
 Deleted: sha256:170b376f64fb30995c140276be3d71dfb256b308d86183ca3b22aa93a79ad548
 ```
 
+清理干净后重新安装
+
+```
+
+```
+
 
 
