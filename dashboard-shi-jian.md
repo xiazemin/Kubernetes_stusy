@@ -54,6 +54,7 @@ kube-dns               ClusterIP   10.96.0.10       <none>        53/UDP,53/TCP 
 kubernetes-dashboard   ClusterIP   10.105.148.225   <none>        443/TCP         43s
 15:30:25-didi@bogon:~$kubectl proxy
 Starting to serve on 127.0.0.1:8001
+~$kubectl -n kube-system edit service kubernetes-dashboard
 ```
 
 
