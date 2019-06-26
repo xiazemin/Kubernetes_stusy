@@ -75,4 +75,5 @@
 * [dashboard 实践](dashboard-shi-jian.md)
   * [--enable-skip-login](dashboard-shi-jian/-enable-skip-login.md)
   * [获取访问令牌](dashboard-shi-jian/huo-qu-fang-wen-ling-pai.md)
+  * [搭建结果](dashboard-shi-jian/da-jian-jie-guo.md)
 
