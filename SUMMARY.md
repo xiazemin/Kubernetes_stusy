@@ -50,4 +50,5 @@
 * [Deployment](deployment.md)
 * [Secret](secret.md)
 * [StatefulSet](statefulset.md)
+* [DaemonSet](daemonset.md)
 
