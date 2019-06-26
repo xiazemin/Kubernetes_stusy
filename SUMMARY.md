@@ -61,4 +61,5 @@
 * [ThirdPartyResources](thirdpartyresources.md)
 * [ConfigMap](configmap.md)
 * [PodPreset](podpreset.md)
+* [配置Kubernetes](pei-zhi-kubernetes.md)
 
