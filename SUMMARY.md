@@ -74,4 +74,5 @@
 * [基于 Docker for MAC 的 Kubernetes 本地环境搭建与应用部署](ji-yu-docker-for-mac-de-kubernetes-ben-di-huan-jing-da-jian-yu-ying-yong-bu-shu.md)
 * [dashboard 实践](dashboard-shi-jian.md)
   * [--enable-skip-login](dashboard-shi-jian/-enable-skip-login.md)
+  * [获取访问令牌](dashboard-shi-jian/huo-qu-fang-wen-ling-pai.md)
 
