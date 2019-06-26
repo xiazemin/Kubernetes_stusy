@@ -60,4 +60,5 @@
 * [Ingress](ingress.md)
 * [ThirdPartyResources](thirdpartyresources.md)
 * [ConfigMap](configmap.md)
+* [PodPreset](podpreset.md)
 
