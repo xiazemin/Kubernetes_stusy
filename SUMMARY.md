@@ -45,4 +45,5 @@
 * [Node](node.md)
 * [ReplicaSets](replicasets.md)
 * [Services](services.md)
+* [Volumes](volumes.md)
 
