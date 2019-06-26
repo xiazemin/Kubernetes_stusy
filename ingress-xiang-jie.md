@@ -80,5 +80,179 @@ spec:
           servicePort: 5601
 ```
 
+三、部署 Ingress TLS
 
+上面已经搞定了 Ingress，下面就顺便把 TLS 怼上；官方给出的样例很简单，大致步骤就两步：创建一个含有证书的 secret、在 Ingress 开启证书；但是我不得不喷一下，文档就提那么一嘴，大坑一堆，比如多域名配置
+
+3.1、创建证书
+
+首先第一步当然要有个证书，由于我这个 Ingress 有两个服务域名，所以证书要支持两个域名；生成证书命令如下：
+
+
+
+\# 生成 CA 自签证书
+
+mkdir cert && cd cert
+
+openssl genrsa -out ca-key.pem 2048
+
+openssl req -x509 -new -nodes -key ca-key.pem -days 10000 -out ca.pem -subj "/CN=kube-ca"
+
+
+
+\# 编辑 openssl 配置
+
+cp /etc/pki/tls/openssl.cnf .
+
+vim openssl.cnf
+
+
+
+\# 主要修改如下
+
+\[req\]
+
+req\_extensions = v3\_req \# 这行默认注释关着的 把注释删掉
+
+\# 下面配置是新增的
+
+\[ v3\_req \]
+
+basicConstraints = CA:FALSE
+
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment
+
+subjectAltName = @alt\_names
+
+\[alt\_names\]
+
+DNS.1 = dashboard.mritd.me
+
+DNS.2 = kibana.mritd.me
+
+
+
+\# 生成证书
+
+openssl genrsa -out ingress-key.pem 2048
+
+openssl req -new -key ingress-key.pem -out ingress.csr -subj "/CN=kube-ingress" -config openssl.cnf
+
+openssl x509 -req -in ingress.csr -CA ca.pem -CAkey ca-key.pem -CAcreateserial -out ingress.pem -days 365 -extensions v3\_req -extfile openssl.cnf
+
+3.2、创建 secret
+
+创建好证书以后，需要将证书内容放到 secret 中，secret 中全部内容需要 base64 编码，然后注意去掉换行符\(变成一行\)；以下是我的 secret 样例\(上一步中 ingress.pem 是证书，ingress-key.pem 是证书的 key\)
+
+
+
+vim ingress-secret.yml
+
+
+
+apiVersion: v1
+
+data:
+
+  tls.crt: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUM5akNDQWQ2Z0F3SUJBZ0lKQU5TR2dNNnYvSVd5TUEwR0NTcUdTSWIzRFFFQkJRVUFNQkl4RURBT0JnTlYKQkFNTUIydDFZbVV0WTJFd0hoY05NVGN3TXpBME1USTBPRFF5V2hjTk1UZ3dNekEwTVRJME9EUXlXakFYTVJVdwpFd1lEVlFRRERBeHJkV0psTFdsdVozSmxjM013Z2dFaU1BMEdDU3FHU0liM0RRRUJBUVVBQTRJQkR3QXdnZ0VLCkFvSUJBUUM2dkNZRFhGSFpQOHI5Zk5jZXlkV015VVlELzAwQ2xnS0M2WjNpYWZ0QlRDK005TmcrQzloUjhJUE4KWW00cjZOMkw1MmNkcmZvQnBHZXovQVRIT0NJYUhJdlp1K1ZaTzNMZjcxZEVLR09nV21LMTliSVAzaGpSeDZhWQpIeGhEVWNab3ZzYWY1UWJHRnUydEF4L2doMTFMdXpTZWJkT0Y1dUMrWHBhTGVzWWdQUjhFS0cxS0VoRXBLMDFGCmc4MjhUU1g2TXVnVVZmWHZ1OUJRUXExVWw0Q2VMOXhQdVB5T3lMSktzbzNGOEFNUHFlaS9USWpsQVFSdmRLeFYKVUMzMnBtTHRlUFVBb2thNDRPdElmR3BIOTZybmFsMW0rMXp6YkdTemRFSEFaL2k1ZEZDNXJOaUthRmJnL2NBRwppalhlQ01xeGpzT3JLMEM4MDg4a0tjenJZK0JmQWdNQkFBR2pTakJJTUM0R0ExVWRFUVFuTUNXQ0VtUmhjMmhpCmIyRnlaQzV0Y21sMFpDNXRaWUlQYTJsaVlXNWhMbTF5YVhSa0xtMWxNQWtHQTFVZEV3UUNNQUF3Q3dZRFZSMFAKQkFRREFnWGdNQTBHQ1NxR1NJYjNEUUVCQlFVQUE0SUJBUUNFN1ByRzh6MytyaGJESC8yNGJOeW5OUUNyYVM4NwphODJUUDNxMmsxUUJ1T0doS1pwR1N3SVRhWjNUY0pKMkQ2ZlRxbWJDUzlVeDF2ckYxMWhGTWg4MU9GMkF2MU4vCm5hSU12YlY5cVhYNG16eGNROHNjakVHZ285bnlDSVpuTFM5K2NXejhrOWQ1UHVaejE1TXg4T3g3OWJWVFpkZ0sKaEhCMGJ5UGgvdG9hMkNidnBmWUR4djRBdHlrSVRhSlFzekhnWHZnNXdwSjlySzlxZHd1RHA5T3JTNk03dmNOaQpseWxDTk52T3dNQ0h3emlyc01nQ1FRcVRVamtuNllLWmVsZVY0Mk1yazREVTlVWFFjZ2dEb1FKZEM0aWNwN0sxCkRPTDJURjFVUGN0ODFpNWt4NGYwcUw1aE1sNGhtK1BZRyt2MGIrMjZjOVlud3ROd24xdmMyZVZHCi0tLS0tRU5EIENFUlRJRklDQVRFLS0tLS0K
+
+  tls.key: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFb3dJQkFBS0NBUUVBdXJ3bUExeFIyVC9LL1h6WEhzblZqTWxHQS85TkFwWUNndW1kNG1uN1FVd3ZqUFRZClBndllVZkNEeldKdUsramRpK2RuSGEzNkFhUm5zL3dFeHpnaUdoeUwyYnZsV1R0eTMrOVhSQ2hqb0ZwaXRmV3kKRDk0WTBjZW1tQjhZUTFIR2FMN0duK1VHeGhidHJRTWY0SWRkUzdzMG5tM1RoZWJndmw2V2kzckdJRDBmQkNodApTaElSS1N0TlJZUE52RTBsK2pMb0ZGWDE3N3ZRVUVLdFZKZUFuaS9jVDdqOGpzaXlTcktOeGZBREQ2bm92MHlJCjVRRUViM1NzVlZBdDlxWmk3WGoxQUtKR3VPRHJTSHhxUi9lcTUycGRadnRjODJ4a3MzUkJ3R2Y0dVhSUXVhelkKaW1oVzRQM0FCb28xM2dqS3NZN0RxeXRBdk5QUEpDbk02MlBnWHdJREFRQUJBb0lCQUJtRmIzaVVISWVocFYraAp1VkQyNnQzVUFHSzVlTS82cXBzenpLVk9NTTNLMk5EZUFkUHhFSDZhYlprYmM4MUNoVTBDc21BbkQvMDdlQVRzClU4YmFrQ2FiY2kydTlYaU5uSFNvcEhlblFYNS8rKys4aGJxUGN6cndtMzg4K0xieXJUaFJvcG5sMWxncWVBOW0KVnV2NzlDOU9oYkdGZHh4YzRxaUNDdmRETDJMbVc2bWhpcFRKQnF3bUZsNUhqeVphdGcyMVJ4WUtKZ003S1p6TAplYWU0bTJDR3R0bmNyUktodklaQWxKVmpyRWoxbmVNa3RHODFTT3QyN0FjeDRlSnozbmcwbjlYSmdMMHcwU05ZCmlwd3I5Uk5PaDkxSGFsQ3JlWVB3bDRwajIva0JIdnozMk9Qb2FOSDRQa2JaeTEzcks1bnFrMHBXdUthOEcyY00KLzY4cnQrRUNnWUVBN1NEeHRzRFFBK2JESGdUbi9iOGJZQ3VhQ2N4TDlObHIxd2tuTG56VVRzRnNkTDByUm1uZAp5bWQ4aU95ME04aUVBL0xKb3dPUGRRY240WFdWdS9XbWV5MzFVR2NIeHYvWlVSUlJuNzgvNmdjZUJSNzZJL2FzClIrNVQ1TEMyRmducVd2MzMvdG0rS0gwc0J4dEM3U2tSK3Y2UndVQk1jYnM3c0dUQlR4NVV2TkVDZ1lFQXlaaUcKbDBKY0dzWHhqd1JPQ0FLZytEMlJWQ3RBVmRHbjVMTmVwZUQ4bFNZZ3krZGxQaCt4VnRiY2JCV0E3WWJ4a1BwSAorZHg2Z0p3UWp1aGN3U25uOU9TcXRrZW04ZmhEZUZ2MkNDbXl4ZlMrc1VtMkxqVzM1NE1EK0FjcWtwc0xMTC9GCkIvK1JmcmhqZW5lRi9BaERLalowczJTNW9BR0xRVFk4aXBtM1ZpOENnWUJrZGVHUnNFd3dhdkpjNUcwNHBsODkKdGhzemJYYjhpNlJSWE5KWnNvN3JzcXgxSkxPUnlFWXJldjVhc0JXRUhyNDNRZ1BFNlR3OHMwUmxFMERWZWJRSApXYWdsWVJEOWNPVXJvWFVYUFpvaFZ0U1VETlNpcWQzQk42b1pKL2hzaTlUYXFlQUgrMDNCcjQ0WWtLY2cvSlplCmhMMVJaeUU3eWJ2MjlpaWprVkVMRVFLQmdRQ2ZQRUVqZlNFdmJLYnZKcUZVSm05clpZWkRpNTVYcXpFSXJyM1cKSEs2bVNPV2k2ZlhJYWxRem1hZW1JQjRrZ0hDUzZYNnMyQUJUVWZLcVR0UGxKK3EyUDJDd2RreGgySTNDcGpEaQpKYjIyS3luczg2SlpRY2t2cndjVmhPT1Z4YTIvL1FIdTNXblpSR0FmUGdXeEcvMmhmRDRWN1R2S0xTNEhwb1dQCm5QZDV0UUtCZ0QvNHZENmsyOGxaNDNmUWpPalhkV0ZTNzdyVFZwcXBXMlFoTDdHY0FuSXk5SDEvUWRaOXYxdVEKNFBSanJseEowdzhUYndCeEp3QUtnSzZmRDBXWmZzTlRLSG01V29kZUNPWi85WW13cmpPSkxEaUU3eFFNWFBzNQorMnpVeUFWVjlCaDI4cThSdnMweHplclQ1clRNQ1NGK0Q5NHVJUmkvL3ZUMGt4d05XdFZxCi0tLS0tRU5EIFJTQSBQUklWQVRFIEtFWS0tLS0tCg==
+
+kind: Secret
+
+metadata:
+
+  name: ingress-secret
+
+  namespace: kube-system
+
+type: Opaque
+
+创建完成后 create 一下就可
+
+
+
+➜  ~ kubectl create -f ingress-secret.yml
+
+secret "ingress-secret" created
+
+其实这个配置比如证书转码啥的没必要手动去做，可以直接使用下面的命令创建，这里写这么多只是为了把步骤写清晰
+
+
+
+kubectl create secret tls ingress-secret --key cert/ingress-key.pem --cert cert/ingress.pem
+
+3.3、重新部署 Ingress
+
+生成完成后需要在 Ingress 中开启 TLS，Ingress 修改后如下
+
+
+
+apiVersion: extensions/v1beta1
+
+kind: Ingress
+
+metadata:
+
+  name: dashboard-kibana-ingress
+
+  namespace: kube-system
+
+spec:
+
+  tls:
+
+  - hosts:
+
+    - dashboard.mritd.me
+
+    - kibana.mritd.me
+
+    secretName: ingress-secret
+
+  rules:
+
+  - host: dashboard.mritd.me
+
+    http:
+
+      paths:
+
+      - backend:
+
+          serviceName: kubernetes-dashboard
+
+          servicePort: 80
+
+  - host: kibana.mritd.me
+
+    http:
+
+      paths:
+
+      - backend:
+
+          serviceName: kibana-logging
+
+          servicePort: 5601
+
+注意：一个 Ingress 只能使用一个 secret\(secretName 段只能有一个\)，也就是说只能用一个证书，更直白的说就是如果你在一个 Ingress 中配置了多个域名，那么使用 TLS 的话必须保证证书支持该 Ingress 下所有域名；并且这个 secretName 一定要放在上面域名列表最后位置，否则会报错 did not find expected key 无法创建；同时上面的 hosts 段下域名必须跟下面的 rules 中完全匹配
+
+
+
+更需要注意一点：之所以这里单独开一段就是因为有大坑；Kubernetes Ingress 默认情况下，当你不配置证书时，会默认给你一个 TLS 证书的，也就是说你 Ingress 中配置错了，比如写了2个 secretName、或者 hosts 段中缺了某个域名，那么对于写了多个 secretName 的情况，所有域名全会走默认证书；对于 hosts 缺了某个域名的情况，缺失的域名将会走默认证书，部署时一定要验证一下证书，不能 “有了就行”；更新 Ingress 证书可能需要等一段时间才会生效
+
+
+
+最后重新部署一下即可
+
+
+
+➜  ~ kubectl delete -f dashboard-kibana-ingress.yml
+
+ingress "dashboard-kibana-ingress" deleted
+
+➜  ~ kubectl create -f dashboard-kibana-ingress.yml
+
+ingress "dashboard-kibana-ingress" created
 
