@@ -58,4 +58,5 @@
 * [Resource Quotas](resource-quotas.md)
 * [Network Policy](network-policy.md)
 * [Ingress](ingress.md)
+* [ThirdPartyResources](thirdpartyresources.md)
 
