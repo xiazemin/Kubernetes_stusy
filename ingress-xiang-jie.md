@@ -14,11 +14,31 @@ Ingress 就是能利用 Nginx、Haproxy 啥的负载均衡器暴露集群内服�
 
 从上面的思路，采用 Nginx 似乎已经解决了问题，但是其实这里面有一个很大缺陷：每次有新服务加入怎么改 Nginx 配置？总不能手动改或者来个 Rolling Update 前端 Nginx Pod 吧？这时候 “伟大而又正直勇敢的” Ingress 登场，如果不算上面的 Nginx，Ingress 只有两大组件：Ingress Controller 和 Ingress
 
-
-
 Ingress 这个玩意，简单的理解就是 你原来要改 Nginx 配置，然后配置各种域名对应哪个 Service，现在把这个动作抽象出来，变成一个 Ingress 对象，你可以用 yml 创建，每次不要去改 Nginx 了，直接改 yml 然后创建/更新就行了；那么问题来了：”Nginx 咋整？”
 
-
-
 Ingress Controller 这东西就是解决 “Nginx 咋整” 的；Ingress Controoler 通过与 Kubernetes API 交互，动态的去感知集群中 Ingress 规则变化，然后读取他，按照他自己模板生成一段 Nginx 配置，再写到 Nginx Pod 里，最后 reload 一下
+
+当然在实际应用中，最新版本 Kubernetes 已经将 Nginx 与 Ingress Controller 合并为一个组件，所以 Nginx 无需单独部署，只需要部署 Ingress Controller 即可
+
+
+
+二、怼一个 Nginx Ingress
+
+上面啰嗦了那么多，只是为了讲明白 Ingress 的各种理论概念，下面实际部署很简单
+
+
+
+2.1、部署默认后端
+
+我们知道 前端的 Nginx 最终要负载到后端 service 上，那么如果访问不存在的域名咋整？官方给出的建议是部署一个 默认后端，对于未知请求全部负载到这个默认后端上；这个后端啥也不干，就是返回 404，部署如下
+
+
+
+➜  ~ kubectl create -f default-backend.yaml
+
+deployment "default-http-backend" created
+
+service "default-http-backend" created
+
+这个 default-backend.yaml 文件可以在 官方 Ingress 仓库 找到
 
