@@ -32,7 +32,13 @@ $ kubectl create configmap special-config --from-env-file=config.env
 
 configmap "special-config" created
 
+
+
+```
 $ kubectl get configmap special-config -o go-template='{{.data}}'
+```
+
+
 
 map\[a:b c:d\]
 
@@ -50,7 +56,13 @@ $ kubectl create configmap special-config --from-file=config/
 
 configmap "special-config" created
 
+
+
+```
 $ kubectl get configmap special-config -o go-template='{{.data}}'
+```
+
+
 
 map\[a:a
 
