@@ -72,4 +72,5 @@
 * [配置kubectl](pei-zhi-kubectl.md)
 * [Kubernetes总结](kuberneteszong-jie.md)
 * [基于 Docker for MAC 的 Kubernetes 本地环境搭建与应用部署](ji-yu-docker-for-mac-de-kubernetes-ben-di-huan-jing-da-jian-yu-ying-yong-bu-shu.md)
+* [dashboard 实践](dashboard-shi-jian.md)
 
