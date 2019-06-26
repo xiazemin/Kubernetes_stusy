@@ -54,8 +54,6 @@ containerPort: 80 容器的端口
 
 执行：kubectl apply -f deployment.yaml
 
-
-
 部署service，将应用发布出去
 
 apiVersion: v1
@@ -76,8 +74,6 @@ type: NodePort
 
 ports:
 
-
-
 port: 80
 
 targetPort: 80
@@ -85,4 +81,11 @@ targetPort: 80
 selector:
 
 app: nginx
+
+执行：kubectl apply -f deployment-service.yaml
+
+  
+
+
+查看：
 
