@@ -118,7 +118,13 @@ my-nginx    nginx         nginx     app=nginx  2         nginx
 
 
 
+
+
+```
 $ kubectl get rc my-nginx -o template --template="{{.spec.selector}}"
+```
+
+
 
 map\[app:nginx\]
 
