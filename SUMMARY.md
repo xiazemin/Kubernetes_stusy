@@ -79,4 +79,5 @@
 * [k8s搭建golang服务](k8sda-jiangolang-fu-wu.md)
 * [kubectl expose](kubectl-expose.md)
 * [kubectl run](kubectl-run.md)
+* [命令式的方式](ming-ling-shi-de-fang-shi.md)
 
