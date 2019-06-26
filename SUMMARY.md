@@ -63,4 +63,5 @@
 * [PodPreset](podpreset.md)
 * [配置Kubernetes](pei-zhi-kubernetes.md)
 * [管理应用：部署持续运行的应用](guan-li-ying-yong-ff1a-bu-shu-chi-xu-yun-xing-de-ying-yong.md)
+* [Horizontal Pod Autoscaling](horizontal-pod-autoscaling.md)
 
