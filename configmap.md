@@ -14,7 +14,13 @@ $ kubectl create configmap special-config --from-literal=special.how=very
 
 configmap "special-config" created
 
+
+
+```
 $ kubectl get configmap special-config -o go-template='{{.data}}'
+```
+
+
 
 map\[special.how:very\]
 
