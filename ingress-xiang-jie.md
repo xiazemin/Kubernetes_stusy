@@ -40,11 +40,25 @@ service "default-http-backend" created
 
 部署完了后端就得把最重要的组件 Nginx+Ingres Controller\(官方统一称为 Ingress Controller\) 部署上
 
-
-
 ➜  ~ kubectl create -f nginx-ingress-controller.yaml
 
 daemonset "nginx-ingress-lb" created
 
 注意：官方的 Ingress Controller 有个坑，至少我看了 DaemonSet 方式部署的有这个问题：没有绑定到宿主机 80 端口，也就是说前端 Nginx 没有监听宿主机 80 端口\(这还玩个卵啊\)；所以需要把配置搞下来自己加一下 hostNetwork
+
+当然它支持以 deamonset 的方式部署，这里用的就是\(个人喜欢而已\)，所以你发现我上面截图是 deployment，但是链接给的却是 daemonset，因为我截图截错了…..
+
+
+
+2.3、部署 Ingress
+
+这个可就厉害了，这个部署完就能装逼了
+
+从上面可以知道 Ingress 就是个规则，指定哪个域名转发到哪个 Service，所以说首先我们得有个 Service，当然 Service 去哪找这里就不管了；这里默认为已经有了两个可用的 Service，以下以 Dashboard 和 kibana 为例
+
+
+
+先写一个 Ingress 文件，语法格式啥的请参考 官方文档，由于我的 Dashboard 和 Kibana 都在 kube-system 这个命名空间，所以要指定 namespace，写之前 Service 分布如下
+
+
 
