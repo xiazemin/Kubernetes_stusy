@@ -44,4 +44,5 @@
 * [Replication Controller](replication-controller.md)
 * [Node](node.md)
 * [ReplicaSets](replicasets.md)
+* [Services](services.md)
 
