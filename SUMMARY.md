@@ -80,4 +80,5 @@
 * [kubectl expose](kubectl-expose.md)
 * [kubectl run](kubectl-run.md)
 * [命令式的方式](ming-ling-shi-de-fang-shi.md)
+* [声明式对象配置](sheng-ming-shi-dui-xiang-pei-zhi.md)
 
