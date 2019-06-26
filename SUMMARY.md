@@ -48,4 +48,6 @@
 * [Volumes](volumes.md)
 * [PV/PVC/StorageClass](pvpvcstorageclass.md)
 * [Deployment](deployment.md)
+* [Secret](secret.md)
+* StatefulSet
 
