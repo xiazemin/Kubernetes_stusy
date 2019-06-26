@@ -84,8 +84,13 @@ app: nginx
 
 执行：kubectl apply -f deployment-service.yaml
 
-  
+查看：kubectl get svc
+
+验证：curl 192.168.1.23:45915 -I
+
+回滚：通过命令回滚
 
 
-查看：
+
+可以写在一个yaml配置文件里，需要用---来分割：
 
