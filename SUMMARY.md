@@ -66,4 +66,5 @@
 * [Horizontal Pod Autoscaling](horizontal-pod-autoscaling.md)
 * [Kubernetes容器连接模型](kubernetesrong-qi-lian-jie-mo-xing.md)
 * [Kube-API Server](kube-api-server.md)
+* [搭建k8s环境参考](da-jian-k8s-huan-jing-can-kao.md)
 
