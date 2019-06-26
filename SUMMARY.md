@@ -55,4 +55,5 @@
 * [CronJob](cronjob.md)
 * [job](job.md)
 * [Security Context和PSP](security-contexthe-psp.md)
+* [Resource Quotas](resource-quotas.md)
 
