@@ -16,7 +16,13 @@
 
 
 
+
+
+```
 ➜  ~ docker container ls --format "table{{.Names}}\t{{.Image }}\t{{.Command}}"
+```
+
+
 
 NAMES                                                                                                                   IMAGE                                                    COMMAND
 
