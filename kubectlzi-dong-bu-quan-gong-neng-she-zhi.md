@@ -56,15 +56,9 @@ kubectl expose deployment nginx-test --port=80 --type=NodePort --target-port=80 
 
 nginx-test：容器的名字，可根据kubectl describe deployment/nginx-test 查看
 
-
-
 \[root@docker ~\]\# kubectl set image deployment/nginx-test nginx-test=nginx:1.15
 
-
-
-6、再访问curl http://192.168.1.23:34234 可以看到nginx版本变为1.15
-
-
+6、再访问curl [http://192.168.1.23:34234](http://192.168.1.23:34234) 可以看到nginx版本变为1.15
 
 7、更新有问题需要回滚
 
@@ -72,11 +66,7 @@ kubectl rollout history deployment/nginx-test
 
 kubectl rollout undo deployment/nginx-test 回滚到上一个版本
 
-
-
-8、再次验证：http://192.168.1.23:34234 可以看到nginx版本变为1.14
-
-
+8、再次验证：[http://192.168.1.23:34234](http://192.168.1.23:34234) 可以看到nginx版本变为1.14
 
 9、删除
 
@@ -85,12 +75,6 @@ kubectl rollout undo deployment/nginx-test 回滚到上一个版本
 kubectl delete deploy/nginx-test
 
 kubectl delete svc/nginx-service
-
-
-
-《三》kubectl命令行管理工具、YAML配置详解
-
-
 
 10、可以进入pod
 
