@@ -90,7 +90,9 @@ app: nginx
 
 回滚：通过命令回滚
 
-
-
 可以写在一个yaml配置文件里，需要用---来分割：
+
+导出现有的ymal文件：
+
+\# kubectl get deployment/nginx-deployment -o=yaml --export &gt; my-deploy.yaml
 
