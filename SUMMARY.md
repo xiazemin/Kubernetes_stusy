@@ -53,4 +53,5 @@
 * [DaemonSet](daemonset.md)
 * [Service Account](service-account.md)
 * [CronJob](cronjob.md)
+* [job](job.md)
 
