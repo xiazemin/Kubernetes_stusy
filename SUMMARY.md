@@ -67,4 +67,5 @@
 * [Kubernetes容器连接模型](kubernetesrong-qi-lian-jie-mo-xing.md)
 * [Kube-API Server](kube-api-server.md)
 * [搭建k8s环境参考](da-jian-k8s-huan-jing-can-kao.md)
+* [rancher 和 Kubernetes有什么区别](rancher-he-kubernetes-you-shi-yao-qu-bie.md)
 
