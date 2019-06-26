@@ -20,19 +20,13 @@ Ingress Controller 这东西就是解决 “Nginx 咋整” 的；Ingress Contro
 
 当然在实际应用中，最新版本 Kubernetes 已经将 Nginx 与 Ingress Controller 合并为一个组件，所以 Nginx 无需单独部署，只需要部署 Ingress Controller 即可
 
-
-
 二、怼一个 Nginx Ingress
 
 上面啰嗦了那么多，只是为了讲明白 Ingress 的各种理论概念，下面实际部署很简单
 
-
-
 2.1、部署默认后端
 
 我们知道 前端的 Nginx 最终要负载到后端 service 上，那么如果访问不存在的域名咋整？官方给出的建议是部署一个 默认后端，对于未知请求全部负载到这个默认后端上；这个后端啥也不干，就是返回 404，部署如下
-
-
 
 ➜  ~ kubectl create -f default-backend.yaml
 
@@ -41,4 +35,16 @@ deployment "default-http-backend" created
 service "default-http-backend" created
 
 这个 default-backend.yaml 文件可以在 官方 Ingress 仓库 找到
+
+2.2、部署 Ingress Controller
+
+部署完了后端就得把最重要的组件 Nginx+Ingres Controller\(官方统一称为 Ingress Controller\) 部署上
+
+
+
+➜  ~ kubectl create -f nginx-ingress-controller.yaml
+
+daemonset "nginx-ingress-lb" created
+
+注意：官方的 Ingress Controller 有个坑，至少我看了 DaemonSet 方式部署的有这个问题：没有绑定到宿主机 80 端口，也就是说前端 Nginx 没有监听宿主机 80 端口\(这还玩个卵啊\)；所以需要把配置搞下来自己加一下 hostNetwork
 
