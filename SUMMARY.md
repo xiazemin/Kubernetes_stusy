@@ -70,4 +70,5 @@
 * [rancher 和 Kubernetes有什么区别](rancher-he-kubernetes-you-shi-yao-qu-bie.md)
 * [kubectl](kubectl.md)
 * [配置kubectl](pei-zhi-kubectl.md)
+* [Kubernetes总结](kuberneteszong-jie.md)
 
