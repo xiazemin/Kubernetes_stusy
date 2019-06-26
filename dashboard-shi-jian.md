@@ -55,6 +55,13 @@ kubernetes-dashboard   ClusterIP   10.105.148.225   <none>        443/TCP       
 15:30:25-didi@bogon:~$kubectl proxy
 Starting to serve on 127.0.0.1:8001
 ~$kubectl -n kube-system edit service kubernetes-dashboard
+15:36:28-didi@bogon:~$kubectl get pods
+NAME                        READY     STATUS    RESTARTS   AGE
+my-nginx-77f56b88c8-wx6jm   1/1       Running   0          2h
+my-nginx-77f56b88c8-x4fd6   1/1       Running   0          2h
+15:36:30-didi@bogon:~$kubectl get deployments
+NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+my-nginx   2         2         2            2           2h
 ```
 
 
