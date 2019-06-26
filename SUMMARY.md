@@ -81,4 +81,5 @@
 * [kubectl run](kubectl-run.md)
 * [命令式的方式](ming-ling-shi-de-fang-shi.md)
 * [声明式对象配置](sheng-ming-shi-dui-xiang-pei-zhi.md)
+* [kubectl自动补全功能设置](kubectlzi-dong-bu-quan-gong-neng-she-zhi.md)
 
