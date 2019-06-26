@@ -78,4 +78,5 @@
   * [搭建结果](dashboard-shi-jian/da-jian-jie-guo.md)
 * [k8s搭建golang服务](k8sda-jiangolang-fu-wu.md)
 * [kubectl expose](kubectl-expose.md)
+* [kubectl run](kubectl-run.md)
 
