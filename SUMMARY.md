@@ -59,4 +59,5 @@
 * [Network Policy](network-policy.md)
 * [Ingress](ingress.md)
 * [ThirdPartyResources](thirdpartyresources.md)
+* [ConfigMap](configmap.md)
 
