@@ -83,4 +83,6 @@
 * [声明式对象配置](sheng-ming-shi-dui-xiang-pei-zhi.md)
 * [kubectl自动补全功能设置](kubectlzi-dong-bu-quan-gong-neng-she-zhi.md)
 * [YAML详解](yamlxiang-jie.md)
+* [Ingress](ingress.md)
+* [Ingress 详解](ingress-xiang-jie.md)
 
