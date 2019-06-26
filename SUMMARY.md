@@ -46,4 +46,5 @@
 * [ReplicaSets](replicasets.md)
 * [Services](services.md)
 * [Volumes](volumes.md)
+* [PV/PVC/StorageClass](pvpvcstorageclass.md)
 
