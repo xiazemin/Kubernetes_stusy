@@ -93,4 +93,5 @@
 * [停止应用](ting-zhi-ying-yong.md)
 * [expose](expose.md)
   * [kubectl expose](expose/kubectl-expose.md)
+  * [配置文件](expose/pei-zhi-wen-jian.md)
 
