@@ -92,4 +92,5 @@
   * [实战](qie-huan-namespace/shi-zhan.md)
 * [停止应用](ting-zhi-ying-yong.md)
 * [expose](expose.md)
+  * [kubectl expose](expose/kubectl-expose.md)
 
