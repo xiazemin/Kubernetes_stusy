@@ -95,4 +95,5 @@
   * [kubectl expose](expose/kubectl-expose.md)
   * [配置文件](expose/pei-zhi-wen-jian.md)
 * [局域网访问](ju-yu-wang-fang-wen.md)
+  * [端口映射的方式把Docker容器的服务提供给宿主机或者局域网其他容器使用](ju-yu-wang-fang-wen/duan-kou-ying-she-de-fang-shi-ba-docker-rong-qi-de-fu-wu-ti-gong-gei-su-zhu-ji-huo-zhe-ju-yu-wang-qi-ta-rong-qi-shi-yong.md)
 
