@@ -30,7 +30,7 @@ $ kubectl proxy --namespace=kube-apps
 
 F0627 11:00:36.200633   38414 proxy.go:154\] listen tcp 127.0.0.1:8001: bind: address already in use
 
-$ kubectl proxy --namespace=kube-apps
+$ kubectl proxy --namespace=kube-apps （因为没有带命名空间，走默认的default，没有起服务所以失败了）
 
 Starting to serve on 127.0.0.1:8001
 
