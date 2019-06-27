@@ -26,3 +26,11 @@ goapp-deploy-767986448b-8t5d8   1/1       Running   0          13h
 
 goapp-deploy-767986448b-dfn5d   1/1       Running   0          13h
 
+$ kubectl proxy --namespace=kube-apps
+
+F0627 11:00:36.200633   38414 proxy.go:154\] listen tcp 127.0.0.1:8001: bind: address already in use
+
+$ kubectl proxy --namespace=kube-apps
+
+Starting to serve on 127.0.0.1:8001
+
