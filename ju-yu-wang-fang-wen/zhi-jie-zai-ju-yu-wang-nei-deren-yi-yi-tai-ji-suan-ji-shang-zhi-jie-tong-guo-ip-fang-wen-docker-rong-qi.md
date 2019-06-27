@@ -31,7 +31,17 @@ eth0      Link encap:Ethernet  HWaddr 02:42:ac:11:00:02
           TX packets:2811 errors:0 dropped:0 overruns:0 carrier:0
           collisions:0 txqueuelen:0 
           RX bytes:4763490 (4.7 MB)  TX bytes:219998 (219.9 KB)
+```
 
+```
+可以看到这个容器的IP地址为172.17.0.2，现在我们到宿主机里看看ping 172.17.0.2能不能ping通。
+答案当然是能ping通，能ping通的原因就是我们的宿主机里知道目标地址为172.17.0.1/16的路由信息，不信我们可以查看一下
+
+alex@alex-Lenovo-U310:~$ ip route
+default via 192.168.12.1 dev wlp3s0  proto static  metric 600 
+169.254.0.0/16 dev docker0  scope link  metric 1000 
+172.17.0.0/16 dev docker0  proto kernel  scope link  src 172.17.0.1 
+192.168.12.0/24 dev wlp3s0  proto kernel  scope link  src 192.168.12.107  metric 600
 ```
 
 
