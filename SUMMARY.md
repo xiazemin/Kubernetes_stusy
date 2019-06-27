@@ -87,4 +87,6 @@
 * [Ingress 详解](ingress-xiang-jie.md)
   * [服务暴露介绍](ingress-xiang-jie/fu-wu-bao-lu-jie-shao.md)
 * [导出配置](dao-chu-pei-zhi.md)
+* [namespace](namespace.md)
+* [切换namespace](qie-huan-namespace.md)
 
