@@ -4,5 +4,17 @@
 
 PONG
 
+kubectl get deployment
 
+NAME         DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
+
+db           1         1         1            1           16h
+
+goxiazemin   1         1         1            1           13h
+
+my-nginx     2         2         2            2           22h
+
+web          1         1         1            0           16h
+
+words        5         5         5            1           16h
 
