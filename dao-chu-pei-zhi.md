@@ -96,5 +96,20 @@ status:
   loadBalancer: {}
 ```
 
+原配置文件加上：type: LoadBalancer
+
+```
+$kubectl delete services/goapp-expose --namespace=kube-apps
+service "goapp-expose" deleted
+ 
+$kubectl apply -f k8s.yaml
+
+$kubectl get services --namespace=kube-apps
+NAME        TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)          AGE
+goapp-svc   LoadBalancer   10.100.253.241   localhost     8085:32408/TCP   15h
+```
+
+请求成功
+
 
 
