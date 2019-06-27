@@ -18,3 +18,7 @@ web          1         1         1            0           16h
 
 words        5         5         5            1           16h
 
+$kubectl get deployment/goxiazemin -o=yaml --export &gt; goxiazemin-deploy.yaml
+
+
+
