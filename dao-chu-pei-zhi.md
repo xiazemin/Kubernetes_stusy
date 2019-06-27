@@ -69,5 +69,32 @@ spec:
 status: {}
 ```
 
+$kubectl get services/goapp-expose --namespace=kube-apps  -o=yaml --export &gt; goapp-expose.yaml
+
+```
+$cat goapp-expose.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    k8s-app: goappk8s
+  name: goapp-expose
+  selfLink: /api/v1/namespaces/kube-apps/services/goapp-expose
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - nodePort: 31267
+    port: 8085
+    protocol: TCP
+    targetPort: 8085
+  selector:
+    k8s-app: goappk8s
+  sessionAffinity: None
+  type: LoadBalancer
+status:
+  loadBalancer: {}
+```
+
 
 
