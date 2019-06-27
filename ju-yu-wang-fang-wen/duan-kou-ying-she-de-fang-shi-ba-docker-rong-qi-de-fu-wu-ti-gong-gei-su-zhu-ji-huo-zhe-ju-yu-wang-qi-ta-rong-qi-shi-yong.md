@@ -12,3 +12,13 @@ sudo docker run -itd -p 0.0.0.0:5053:53/udp --name=CureDNS alexzhuo/cdns cdns -c
 
 $ dig www.facebook.com @127.0.0.1 -p 5053
 
+假设我们的宿主机IP是192.168.12.107
+
+如果现在出现另外一台局域网计算机，IP地址为192.168.12.113，它想把宿主机当成DNS服务器，那么我们就需要在192.168.12.113这台计算机上访问192.168.12.107：5053来查询DNS，dig命令如下
+
+
+
+dig www.facebook.com @192.168.12.107 -p 5053
+
+
+
