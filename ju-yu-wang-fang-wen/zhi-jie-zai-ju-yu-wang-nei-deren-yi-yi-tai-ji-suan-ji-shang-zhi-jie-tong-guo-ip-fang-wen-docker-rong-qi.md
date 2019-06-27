@@ -66,5 +66,38 @@ route add -net 172.17.0.1/16 gw 192.168.12.107
 
 ip route add 172.17.0.1/16 via 192.168.12.107
 
+```
+现在新电脑访问172.17.0.2的数据包就会先被发送到宿主机（第二个路由器）上，然后宿主机再转发到Docker容器上，我们就把Docker容器暴露到局域网里了。
+
+但此时你会发现你在新计算机上还是ping不通，这是为什么呢。因为路由器二（宿主机）对它的内网机器也就是Docker容器们全部开启了NAT，源IP为172.17.0.2/16的数据包不会出现在宿主机以外的网络中，因为他们被NAT了。这个NAT是Docker进程默认自动帮我们实现的，我们先看一下
+
+alex@alex-Lenovo-U310:~$ sudo iptables -t nat -L -n
+Chain PREROUTING (policy ACCEPT)
+target     prot opt source               destination         
+DOCKER     all  --  0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type LOCAL
+
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+DOCKER     all  --  0.0.0.0/0           !127.0.0.0/8          ADDRTYPE match dst-type LOCAL
+
+Chain POSTROUTING (policy ACCEPT)
+target     prot opt source               destination         
+MASQUERADE  all  --  172.17.0.0/16        0.0.0.0/0           
+MASQUERADE  tcp  --  172.17.0.2           172.17.0.2           tcp dpt:53
+MASQUERADE  udp  --  172.17.0.2           172.17.0.2           udp dpt:53
+
+Chain DOCKER (2 references)
+target     prot opt source               destination         
+RETURN     all  --  0.0.0.0/0            0.0.0.0/0           
+DNAT       tcp  --  0.0.0.0/0            127.0.0.1            tcp dpt:5053 to:172.17.0.2:53
+DNAT       udp  --  0.0.0.0/0            127.0.0.1            udp dpt:5053 to:172.17.0.2:53
+
+注意那句MASQUERADE  all  --  172.17.0.0/16        0.0.0.0/0会导致所有172.17.0.0/16的数据包都不能到达docker以外的网络，所以我们要关掉这个NAT，关掉很容易，我们只需删掉这一条iptables规则就可以了。然后源IP为172.17.0.2的数据包就可以出现在192.168.12.1/24的网络中了。
+sudo iptables -t nat -D POSTROUTING 3
+```
+
 
 
