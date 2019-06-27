@@ -94,4 +94,5 @@
 * [expose](expose.md)
   * [kubectl expose](expose/kubectl-expose.md)
   * [配置文件](expose/pei-zhi-wen-jian.md)
+* [局域网访问](ju-yu-wang-fang-wen.md)
 
