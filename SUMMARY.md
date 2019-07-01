@@ -104,4 +104,5 @@
     * [VPN解决方案](ju-yu-wang-fang-wen/docker0/vpnjie-jue-fang-an.md)
     * macvlan
 * [Kubernetes和Mesos有啥区别](kuberneteshe-mesos-you-sha-qu-bie.md)
+  * [kubernetes 对比 mesos + marathon](kuberneteshe-mesos-you-sha-qu-bie/kubernetes-dui-bi-mesos-+-marathon.md)
 
